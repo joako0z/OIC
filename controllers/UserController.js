@@ -27,7 +27,11 @@ module.exports ={
         if(err) throw err;
             db.end();
         });
-        return;
-	},
+        req.flash('info', 'Se ha registrado correctamente ya puede iniciar session');
+		return res.redirect('signin');
+    },
+    getSignIn : function(req,res,next){
+		return res.render('signin', {message:req.flash('info'), authmessage: req.flash('authmessage')});
+	}
 
 };

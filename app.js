@@ -3,10 +3,23 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var flash = require('connect-flash');
+var session = require ('express-session');
 
 var routes = require('./routes/routes');
 
 var app = express();
+
+// Configuracion de Cookies y sessions
+
+app.use(cookieParser());
+app.use(session({
+  secret: 'claveSecretaIDQ',
+  resave: false,
+  saveUninitialized: false
+  
+}));
+app.use(flash());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
