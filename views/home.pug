@@ -1,0 +1,30 @@
+extends Templates/default
+
+block content
+  div.container
+      div.jumbotron
+        h1 ÓRGANO INTERNO DE CONTROL
+        if isAuthenticated
+          p='Bienvenido '+ user.nombret
+        else
+          p Portal de prueba
+          p
+            a.btn.btn-primary(href="/login")  Ingresa
+          p
+            span.small ¿No tienes cuenta?
+            span &nbsp;
+            a.small(href="/register") Registrate
+          .dropdown
+            button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+              | prueba boton
+              span.caret
+            ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+              li
+                a(href='#') Action
+              li
+                a(href='#') Another action
+              li  
+                a(href='#') Something else here
+              li.divider(role='separator')
+              li
+                a(href='#') Separated link
